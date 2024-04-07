@@ -42,3 +42,6 @@ extend-select = [
   "LOG", # Logging
   "RUF", # Ruff specific rules
 ]
+
+[lint.per-file-ignores]
+"tests/**" = ["S101"]
