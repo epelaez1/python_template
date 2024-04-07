@@ -4,22 +4,17 @@ jobs:
 
   qa:
     name: Quality check
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Set up Python
         uses: actions/setup-python@master
         with:
-          python-version: '3.10'
+          python-version: '3.11'
       - name: Run unit tests
         run: |
           pip install -r requirements.txt
           pip install -r requirements-test.txt
           pytest
-      - name: Wemake Python Style guide
-        uses: wemake-services/wemake-python-styleguide@0.15.3
-        continue-on-error: true
-        with:
-          reporter: 'github-pr-review'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Ruff checker
+        users: chartboost/ruff-action@v1
