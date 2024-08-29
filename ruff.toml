@@ -12,12 +12,10 @@ extend-select = [
   "FBT", # Boolean trap
   "B", # BugBear
   "A", # Builtins
-  "COM", # Trailing comma
   "C4", # Comprenhensions
   "DTZ", # Datetime
   "T10", # Debugger
   "EM", # Error messages
-  "ISC", # String concatenation
   "ICN", # Import conventions
   "G", # Logging
   "PIE", # Unnecessary statements
@@ -44,4 +42,7 @@ extend-select = [
 ]
 
 [lint.per-file-ignores]
-"tests/**" = ["S101"]
+"**/*.py" = ["S101"]
+
+[format]
+exclude = ["alembic/versions/*"]
